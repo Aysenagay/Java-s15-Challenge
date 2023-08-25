@@ -1,4 +1,4 @@
-package com.library.core;
+package com.library.model;
 
 import java.util.*;
 
@@ -7,6 +7,12 @@ public class Author {
     private String surname;
 
     List<Book> books;
+
+    public Author(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+        this.books = books;
+    }
 
     public String getName() {
         return name;
@@ -32,6 +38,16 @@ public class Author {
         this.books = books;
     }
 
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Author author = (Author) obj;
+        return Objects.equals(name, author.name) && Objects.equals(surname, author.surname);
+    }
+
+
     @Override
     public String toString() {
         return "Author{" +
@@ -40,4 +56,11 @@ public class Author {
                 ", books=" + books +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name,surname);
+    }
+
+
 }
