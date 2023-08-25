@@ -6,12 +6,12 @@ public class Author {
     private String name;
     private String surname;
 
-    List<Book> books;
+    private List<Book> books;
 
     public Author(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.books = books;
+        this.books = new ArrayList<>();
     }
 
     public String getName() {
@@ -37,7 +37,6 @@ public class Author {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
-
 
     @Override
     public boolean equals(Object obj) {
